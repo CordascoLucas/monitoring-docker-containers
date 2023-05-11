@@ -1,0 +1,13 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.table-containers {
+    width: 100%;
+    background-color: #312e2e;
+    min-height: 200px;
+}
+
+.table-containers-head th {
+    text-align: start;
+}
