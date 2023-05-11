@@ -6,7 +6,7 @@ use Exception;
 
 class Containers {
     public static function obtainContainers(): array {
-        try }
+        try {
             //TODO: mejorar performance y formacion de array
             $output = shell_exec('docker ps -a --format "{{.Names}}"');
             if(!$output) {
