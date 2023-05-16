@@ -18,33 +18,33 @@
                     <th class="p-3 text-2xl font-semibold tracking-wide text-left">Acción</th>
                 </tr>
             </thead>
-            <tbody class="overflow-hidden" v-for="container in containers" v-if="containers">
-                    <tr class="bg-gray-100">
-                        <td class="p-2 text-gray-700 w-0 text-2xl">{{ container.name }}</td>
-                        <td class="p-2 text-gray-700 w-0 text-2xl">{{ container.network }}</td>
-                        <td class="p-2 text-gray-700 w-0 text-2xl">
-                            <span class="span-running p-1.5 font-medium uppercase text-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50" v-if="container.running">running</span>
-                            <span class="span-stoped p-1.5 font-medium uppercase text-wider text-red-800 bg-red-200 rounded-lg bg-opacity-50" v-else>stoped</span>
-                        </td>
-                        <td class="p-2 text-gray-700 w-0 text-2xl">{{ container.state }}</td>
-                        <td class="p-2 text-gray-700 w-0 text-2xl">
-                            <button class="text-xl ml-2 mr-3 bg-grey-100 hover:bg-yellow-200 p-2 hover:rounded-lg hover:text-yellow-700" v-if="container.running" @click="updateContainer('stop', container.name)">
-                                <font-awesome-icon icon="stop" />
-                            </button>
-                            <button class="text-xl ml-2 mr-3 bg-grey-100 hover:bg-green-200 p-2 hover:rounded-lg hover:text-green-800" v-else @click="updateContainer('start', container.name)">
-                                <font-awesome-icon icon="play" />
-                            </button>
-                            <button class="text-xl ml-4 bg-grey-100 hover:bg-red-200 p-2 hover:rounded-lg hover:text-red-800" @click="updateContainer('rm', container.name)">
-                                <font-awesome-icon icon="trash" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody v-else>
-                    <tr class="bg-gray-100 w-full text-2xl font-semibold ">
-                        <td class="p-2 text-m text-gray-700 w-0">No hay containers</td>
-                    </tr>
-                </tbody>
+            <tbody class="overflow-hidden" v-for="container in containers" v-if="containers.length">
+                <tr class="bg-gray-100">
+                    <td class="p-2 text-gray-700 w-0 text-2xl">{{ container.name }}</td>
+                    <td class="p-2 text-gray-700 w-0 text-2xl">{{ container.network }}</td>
+                    <td class="p-2 text-gray-700 w-0 text-2xl">
+                        <span class="span-running p-1.5 font-medium uppercase text-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50" v-if="container.running">running</span>
+                        <span class="span-stoped p-1.5 font-medium uppercase text-wider text-red-800 bg-red-200 rounded-lg bg-opacity-50" v-else>stoped</span>
+                    </td>
+                    <td class="p-2 text-gray-700 w-0 text-2xl">{{ container.state }}</td>
+                    <td class="p-2 text-gray-700 w-0 text-2xl">
+                        <button class="text-xl ml-2 mr-3 bg-grey-100 hover:bg-yellow-200 p-2 hover:rounded-lg hover:text-yellow-700" v-if="container.running" @click="updateContainer('stop', container.name)">
+                            <font-awesome-icon icon="stop" />
+                        </button>
+                        <button class="text-xl ml-2 mr-3 bg-grey-100 hover:bg-green-200 p-2 hover:rounded-lg hover:text-green-800" v-else @click="updateContainer('start', container.name)">
+                            <font-awesome-icon icon="play" />
+                        </button>
+                        <button class="text-xl ml-4 bg-grey-100 hover:bg-red-200 p-2 hover:rounded-lg hover:text-red-800" @click="updateContainer('rm', container.name)">
+                            <font-awesome-icon icon="trash" />
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody v-else class="w-full overflow-hidden">
+                <tr class="bg-gray-100 w-full">
+                    <td class="p-2 pt-6 pb-6 text-2xl text-center text-gray-700 w-full font-semibold" colspan="5">No hay containers</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
