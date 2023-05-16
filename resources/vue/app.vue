@@ -33,7 +33,6 @@ export default {
         getItems() {
             this.loader = true
             let loader = this.$loading.show({
-                // Optional parameters
                 container: false,
                 canCancel: false,
                 opacity: 0.1,

@@ -17,7 +17,6 @@ class Containers {
             do {
                 $container_name =  $containers_names[$i];
                 $decode_array = json_decode(shell_exec('docker inspect ' . $container_name), true);
-                // $decode_array = $output_inspect, true);
                 $status = $decode_array[0]["State"]["Status"];
                 $network = array_key_first($decode_array[0]["NetworkSettings"]["Networks"]);
                 $status_containers[$i] = [
